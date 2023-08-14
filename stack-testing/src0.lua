@@ -1,11 +1,13 @@
 -- Version: Lua 5.3.5
+SelectStack = true -- Right Stack = True, Left Stack = False
+local Block_Count = 0
+Offset_Prep = {0,0,-7.5,0}
+
+MovJ(InitialPose)
 while(true)
-do
-  MovJ(InitialPose)
+do 
   MovL(RightStack)
-  pickup_Object(RESTING_OFFSET)
-  local Option = {SpeedL=50, AccL=20, Start=10, ZLimit=80, End=50}
-  Jump(LeftStack, Option)
-  local Offset = {0,0,-60,0}
-  place_Object(Offset)
+  pickup_Object(Offset_Prep)
+  MovL(LeftStack)
+  place_Object(Offset_Prep)
 end
