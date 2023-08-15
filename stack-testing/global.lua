@@ -4,23 +4,25 @@ OBJECT_HEIGHT = 18.5 -- mm
 NumBlocks = 4
 SelectStack = true -- Right Stack = True, Left Stack = False
 
-RightStack = {270,300,-100,0} -- Aliasing for cartesian positions
-LeftStack = {270,-300,-100,90}
+RightStack = P1 -- Aliasing for cartesian positions
+LeftStack = P2
 
 function pickup_Object(offset)
     DO(1,ON)
-    RelMovL(offset)
+    notoffset = -offset
+    RelMovL({0,0,notoffset,0})
     Wait(750)
     DO(1,OFF)
-    RelMovL(-offset)
+    RelMovL({0,0,offset,0})
 end
 
 function place_Object(offset)
-    RelMovL(offset)
+    notoffset = -offset
+    RelMovL({0,0,notoffset,0})
     DO(2,ON)
     Wait(400)
     DO(2,OFF)
-    RelMovL(-offset)
+    RelMovL({0,0,offset,0})
 end
 
 function offset_Calc(count)
