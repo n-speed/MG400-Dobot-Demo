@@ -1,6 +1,6 @@
 -- Global variable module is only used to define global variables and module functions. The motion command cannot be called here.
 -- Version: Lua 5.3.5
-OBJECT_HEIGHT = 18.5 -- mm
+OBJECT_HEIGHT = 18.75 -- mm
 NumBlocks = 4
 SelectStack = true -- Right Stack = True, Left Stack = False
 
@@ -23,10 +23,4 @@ function place_Object(offset)
     Wait(400)
     DO(2,OFF)
     RelMovL({0,0,offset,0})
-end
-
-function offset_Calc(count)
-
-
-
 end
